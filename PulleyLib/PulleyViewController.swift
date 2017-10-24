@@ -744,7 +744,7 @@ open class PulleyViewController: UIViewController {
                 
                 self?.drawerScrollView.setContentOffset(CGPoint(x: 0, y: stopToMoveTo - lowestStop), animated: false)
                 
-                // Move backgroundDimmingView up to match drawer position (to avoid drawer background beeing darkened)
+                // Move backgroundDimmingView to avoid drawer background beeing darkened
                 self?.backgroundDimmingView.frame = self?.backgroundDimmingViewFrameForDrawerPosition(stopToMoveTo) ?? CGRect.zero
                 
                 if let drawer = self
@@ -765,7 +765,7 @@ open class PulleyViewController: UIViewController {
         {
             drawerScrollView.setContentOffset(CGPoint(x: 0, y: stopToMoveTo - lowestStop), animated: false)
             
-            // Move backgroundDimmingView up to match drawer position (to avoid drawer background beeing darkened)
+            // Move backgroundDimmingView to avoid drawer background beeing darkened
             backgroundDimmingView.frame = backgroundDimmingViewFrameForDrawerPosition(stopToMoveTo)
             
             delegate?.drawerPositionDidChange?(drawer: self, bottomSafeArea: getBottomSafeArea())
@@ -1101,7 +1101,7 @@ extension PulleyViewController: UIScrollViewDelegate {
             (drawerContentViewController as? PulleyDrawerViewControllerDelegate)?.drawerChangedDistanceFromBottom?(drawer: self, distance: scrollView.contentOffset.y + lowestStop, bottomSafeArea: getBottomSafeArea())
             (primaryContentViewController as? PulleyPrimaryContentControllerDelegate)?.drawerChangedDistanceFromBottom?(drawer: self, distance: scrollView.contentOffset.y + lowestStop, bottomSafeArea: getBottomSafeArea())
             
-            // Move backgroundDimmingView up to match drawer position (to avoid drawer background beeing darkened)
+            // Move backgroundDimmingView to avoid drawer background beeing darkened
             backgroundDimmingView.frame = backgroundDimmingViewFrameForDrawerPosition(scrollView.contentOffset.y + lowestStop)
         }
     }
