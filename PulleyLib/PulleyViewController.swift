@@ -525,12 +525,6 @@ open class PulleyViewController: UIViewController {
         scrollViewDidScroll(drawerScrollView)
     }
     
-    override open func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        maskBackgroundDimmingView()
-    }
-    
     override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -624,6 +618,8 @@ open class PulleyViewController: UIViewController {
         cardMaskLayer.backgroundColor = UIColor.clear.cgColor
         drawerContentContainer.layer.mask = cardMaskLayer
         drawerShadowView.layer.shadowPath = borderPath
+        
+        maskBackgroundDimmingView()
         
         setDrawerPosition(position: drawerPosition, animated: false)
     }
